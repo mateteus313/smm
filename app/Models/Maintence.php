@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class Maintence extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'maintence';
+    protected $table            = 'maintences';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ["id", "computer_id", "description", "resolved", "created_at", "updated_at"];
 
     // Dates
     protected $useTimestamps = false;
