@@ -22,7 +22,7 @@
 
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Nome da companhia</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Mutari</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
@@ -55,9 +55,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/maintence">
                                 <span data-feather="users"></span>
-                                Clientes
+                                Manutenções
                             </a>
                         </li>
                         <li class="nav-item">
@@ -131,24 +131,28 @@
                         <tbody>
                             <?php foreach ($computers as $computer) : ?>
                                 <tr>
-                                    <td><?= $computer->id ?></td>
-                                    <td><?= $computer->departament_id ?></td>
-                                    <td><?= $computer->codigo ?></td>
-                                    <td><?= $computer->username ?></td>
-                                    <td><?= $computer->video ?></td>
-                                    <td><?= $computer->hd ?></td>
-                                    <td><?= $computer->memory ?></td>
-                                    <td><?= $computer->processor ?></td>
-                                    <td><?= $computer->created_at ?></td>
-                                    <td><?= $computer->updated_at ?></td>
+                                    <td><?= $computer['id'] ?></td>
+                                    <td><?= $computer['description'] ?></td>
+                                    <td><?= $computer['codigo'] ?></td>
+                                    <td><?= $computer['username'] ?></td>
+                                    <td><?= $computer['video'] ?></td>
+                                    <td><?= $computer['hd'] ?></td>
+                                    <td><?= $computer['memory'] ?></td>
+                                    <td><?= $computer['processor'] ?></td>
+                                    <td><?= $computer['created_at'] ?></td>
+                                    <td><?= $computer['updated_at'] ?></td>
                                     
                                     <td class="text-center">
                                         <!-- BOTAO DE EDITAR COMPUTADOR -->
-                                        <a href="<?php echo site_url('Computers/editarComputador/' . $computer->id) ?>" class="btn btn-primary btn-sm mx-2 "><i class="fa fa-edit"></i></a>
+                                        <a href="<?php echo site_url('Computers/editarComputador/' . $computer['id']) ?>" class="btn btn-primary btn-sm mx-2 "><i class="fa fa-edit"></i></a>
                                         <!-- FIM -->
 
                                         <!-- BOTAO DE EXCLUIR COMPUTADOR -->
-                                        <a href="<?php echo site_url('Computers/deletarComputador/' . $computer->id) ?>" class="btn btn-primary btn-sm mx-2"><i class="fa fa-trash"></i></a>
+                                        <a href="<?php echo site_url('Computers/deletarComputador/' . $computer['id']) ?>" class="btn btn-primary btn-sm mx-2"><i class="fa fa-trash"></i></a>
+                                        <!-- FIM -->
+
+                                        <!-- BOTAO DE HISTORICO -->
+                                        <a href="<?php echo site_url('Maintence/visualizarHistorico/' . $computer['id']) ?>" class="btn btn-primary btn-sm mx-2"><i class="fa fa-book"></i></a>
                                         <!-- FIM -->
                                     </td>
                                 </tr>
@@ -157,7 +161,7 @@
                     </table>
 
                     <div>
-                        <a href="<?php echo site_url('Computers/criarComputador/' . $computer->id) ?>" class="btn btn-primary">Novo</a>
+                        <a href="<?php echo site_url('Computers/criarComputador/' . $computer['id']) ?>" class="btn btn-primary">Novo</a>
                     </div>
                 </div>
             </main>

@@ -26,7 +26,7 @@
       <div class="form-group">
         <label for="inputEmail">Deseja excluir o computador que pertence ao departamento:</label>
         <div class="card p-3 my-3 bg-light">
-          <h4><?php echo $departament_id ?></h4>
+          <h4><?php echo $departaments['description'] ?></h4>
         </div>
       </div>
 

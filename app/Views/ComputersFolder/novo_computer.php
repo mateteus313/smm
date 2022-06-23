@@ -15,6 +15,7 @@
 
   <!-- Estilos customizados para esse template -->
   <link href="signin.css" rel="stylesheet">
+
 </head>
 
 <body class="text-center">
@@ -31,8 +32,14 @@
 
       <div class="form-group">
         <label>Especificações do novo computador:</label><br>
-        <label for="inputEmail">Id do departamento</label>
-        <input type="text" name="id_departamento" class="form-control" value="<?php echo $departament_id->departament_id ?>" required>
+        Departamento:
+
+        <select name="id_departamento">
+          <?php
+          foreach ($departaments as $departament) {
+            echo '<option value="' . $departament['id'] . '">' . $departament["description"] . '</option>';
+          } ?>
+        </select><br>
 
         <label for="inputEmail">Codigo</label>
         <input type="text" name="codigo" class="form-control" value="<?php echo $codigo->codigo ?>" required>
@@ -48,7 +55,7 @@
 
         <label for="inputEmail">Memoria RAM</label>
         <input type="text" name="memoria" class="form-control" value="<?php echo $memory->memory ?>" required>
-        
+
         <label for="inputEmail">Processador</label>
         <input type="text" name="processador" class="form-control" value="<?php echo $processor->processor ?>" required>
 

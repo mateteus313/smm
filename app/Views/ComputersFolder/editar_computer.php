@@ -25,35 +25,43 @@ helper('form');
 echo form_open('computers/editarcomputadorsubmition');
 ?>
 
-<!-- Um input escondido para armazenar o id da tarefa que está sendo editada -->
-<input type="hidden" name="id" value="<?php echo $departament_id->id?>">
+
 
 
   <div class="container">
     <form class="form-signin">
+      <!-- Um input escondido para armazenar o id da tarefa que está sendo editada -->
+      <input type="hidden" name="id" value="<?php echo $computer['id']?>">
+
       <h1 class="h3 mb-3 font-weight-normal">Editar Computador</h1>
       
       <div class="form-group">
-        <label for="inputEmail">Id do departamento</label>
-        <input type="text" name="id_departamento" class="form-control" value="<?php echo $departament_id->departament_id ?>" required>
+
+      <label for="inputEmail">Nome do departamento</label><br>
+      <select name="id_departamento">
+          <?php
+          foreach ($departaments as $departament) {
+            echo '<option value="' . $departament['id'] . '">' . $departament["description"] . '</option>';
+          } ?>
+        </select><br>
 
         <label for="inputEmail">Codigo</label>
-        <input type="text" name="codigo" class="form-control" value="<?php echo $departament_id->codigo ?>" required>
+        <input type="text" name="codigo" class="form-control" value="<?php echo $computer['codigo'] ?>" required>
 
         <label for="inputEmail">Nome do(a) usuario</label>
-        <input type="text" name="usuario" class="form-control" value="<?php echo $departament_id->username ?>" required>
+        <input type="text" name="usuario" class="form-control" value="<?php echo $computer['username'] ?>" required>
 
         <label for="inputEmail">Placa de video</label>
-        <input type="text" name="video" class="form-control" value="<?php echo $departament_id->video ?>" required>
+        <input type="text" name="video" class="form-control" value="<?php echo $computer['video'] ?>" required>
 
         <label for="inputEmail">HD</label>
-        <input type="text" name="hd" class="form-control" value="<?php echo $departament_id->hd ?>" required>
+        <input type="text" name="hd" class="form-control" value="<?php echo $computer['hd'] ?>" required>
 
         <label for="inputEmail">Memoria</label>
-        <input type="text" name="memoria" class="form-control" value="<?php echo $departament_id->memory ?>" required>
+        <input type="text" name="memoria" class="form-control" value="<?php echo $computer['memory'] ?>" required>
 
         <label for="inputEmail">Processador</label>
-        <input type="text" name="processador" class="form-control" value="<?php echo $departament_id->processor ?>" required>
+        <input type="text" name="processador" class="form-control" value="<?php echo $computer['processor'] ?>" required>
 
       </div>
       
